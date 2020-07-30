@@ -54,6 +54,7 @@ The cpp code takes less than a min to obtain the final key combination and is fa
 Once the code completed execution, I got the following keys.
 
 2408beef	2707dead
+
 Once done, I cross verified my result by plugging in the keys onto the weaktea.cpp file to get the same output as specified in the document.
 
 Plaintext ( 1, 2) Encoded= (18b1,b6ae) Decoded= ( 1, 2)
