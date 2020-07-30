@@ -1,0 +1,26 @@
+Running the commands on Cloudera Distribution Hadoop(CDH) Virtual Machine.
+
+1. cloudera@quickstart Desktop]$ hdfs dfs -copyFromLocal /home/cloudera/Desktop/cipher_key.txt hdfs:/
+2. pig -x mapreduce
+3. w1 = Load '/cipher_key.txt' USING org.apache.pig.piggybank.storage.CSVExcelStorage('\t','YES_MULTILINE') as (Text:chararray, Key:chararray);
+4. grunt> w1 = Load '/cipher_key.txt' USING PigStorage('\t') as (Text:chararray, Key:chararray);
+5. dump w1;
+6. Store w1 into '/bigdata' PigStorage(',');
+7. hive
+8.  hive > create database crypto;
+	hive > use crypto;
+	hive > create table cipher(Text String,Key String) 
+         > row format delimited
+         > fields terminated by ',';
+	hive > load data inpath '/bigdata' into table cipher;
+9. Performed same operations to create both tables Cipher & Plain for cipher_key.txt and plain_cipher.txt respectively.
+10. hive >  INSERT OVERWRITE LOCAL DIRECTORY '/home/hadoop/'
+	    ROW FORMAT DELIMITED
+       	    FIELDS TERMINATED BY '\t'
+	    STORED AS TEXTFILE
+	    SELECT C.KEY,P.KEY
+	    FROM CIPHER C, PLAIN P
+	    WHERE C.TEXT=P.TEXT;
+
+The query takes less than 5 mins obtain the result file.
+Totally, hive generated 3 result files of 380kb each.
