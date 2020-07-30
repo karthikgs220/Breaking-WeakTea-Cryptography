@@ -52,9 +52,14 @@ The code in final_comp.cpp or Comparion_java.java can be used to compare either 
 The cpp code takes less than a min to obtain the final key combination and is faster than the java comparison.
 
 Once the code completed execution, I got the following keys.
+
 2408beef	2707dead
 Once done, I cross verified my result by plugging in the keys onto the weaktea.cpp file to get the same output as specified in the document.
+
 Plaintext ( 1, 2) Encoded= (18b1,b6ae) Decoded= ( 1, 2)
+
 Plaintext (1234,5678) Encoded= (4ad4,423d) Decoded= (1234,5678)
+
 Plaintext (6789,dabc) Encoded= (de10,1250) Decoded= (6789,dabc)
+
 Plaintext (9abc,deff) Encoded= (0b4e,111d) Decoded= (9abc,deff)
